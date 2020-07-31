@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { GlobalStyle } from "./components/global/global.style";
+import { theme } from "./components/global/theme.style";
+import Home from "./routes/Home";
+import RecipeDetails from "./routes/RecipeDetails";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { RecipesContextProvider } from "./context/recipesContext";
+import { FormContext } from "./context/formContext";
 
-function App() {
+const App = () => {
+  const { addFormVisible } = useContext(FormContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <RecipesContextProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle noScroll={addFormVisible} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/:id" component={RecipeDetails} />
+          </Switch>
+        </ThemeProvider>
+      </RecipesContextProvider>
+    </Router>
   );
-}
+};
 
 export default App;
