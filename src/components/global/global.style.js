@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
     html {
-        overflow: ${({ noScroll }) => (noScroll ? "hidden" : "unset")};
+        overflow: ${({ noScrollAddform, noScrollEditForm }) =>
+            noScrollAddform || noScrollEditForm ? "hidden" : "unset"};
         font-size: 62.5%;
         /* margin-right: ${({ noScroll }) => (noScroll ? "10px" : "unset")}; */
         font-family: 'Inter', sans-serif;

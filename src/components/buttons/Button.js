@@ -14,8 +14,7 @@ export const Button = ({ className, activeButton, activeAdd, activeClose }) => {
                 width="36"
                 height="36"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             >

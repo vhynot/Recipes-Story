@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RecipeWrapper = styled.div`
     width: 80%;
     margin: 2rem auto;
+    margin-bottom: calc(2rem + 62px);
     background-image: linear-gradient(150deg, #764b65, #4b1338);
     padding: 3rem;
     border-radius: 1.5rem;

@@ -2,10 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { RecipesContext } from "../context/recipesContext";
 import { FormContext } from "../context/formContext";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import EditForm from "../components/forms/EditForm";
+import Navbar from "../components/navbar/Navbar";
 import { Button } from "../components/buttons/Button";
-import { BackArrow } from "../components/buttons/back-arrow.style";
 import {
     RecipeWrapper,
     RecipeTitle,
@@ -50,24 +49,6 @@ const RecipeDetails = () => {
 
     return (
         <>
-            <BackArrow>
-                <Link to={"/"}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="36"
-                        height="36"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#fff"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        {/* <line x1="19" y1="12" x2="5" y2="12"></line> */}
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                </Link>
-            </BackArrow>
             <RecipeWrapper>
                 <RecipeTitle>{currentRecipe.title}</RecipeTitle>
                 <List>{spread}</List>
@@ -76,10 +57,12 @@ const RecipeDetails = () => {
                 </EditButton>
             </RecipeWrapper>
             <EditForm currentRecipe={currentRecipe} />
-            <CloseButton
-                activeClose={editFormVisible}
-                activeButton={handleEditFormVisible}
-            />
+            <Navbar>
+                <CloseButton
+                    activeClose={editFormVisible}
+                    activeButton={handleEditFormVisible}
+                />
+            </Navbar>
         </>
     );
 };

@@ -6,6 +6,7 @@ import { Button } from "../components/buttons/Button";
 import AddForm from "../components/forms/AddForm";
 import { RecipesContext } from "../context/recipesContext";
 import { FormContext } from "../context/formContext";
+import Navbar from "../components/navbar/Navbar";
 
 const Home = () => {
     const { recipes } = useContext(RecipesContext);
@@ -14,16 +15,19 @@ const Home = () => {
     const recipesList = recipes.map((recipe) => {
         return <Recipe recipe={recipe} key={recipe.id} />;
     });
+    // https://vhynot.github.io/RecipeStory
 
     return (
         <>
             <Header />
             <Layout>{recipesList}</Layout>
-            <Button
-                activeAdd={addFormVisible}
-                activeButton={handleAddFormVisible}
-            />
             <AddForm />
+            <Navbar>
+                <Button
+                    activeAdd={addFormVisible}
+                    activeButton={handleAddFormVisible}
+                />
+            </Navbar>
         </>
     );
 };

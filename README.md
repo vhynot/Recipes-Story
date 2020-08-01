@@ -1,4 +1,4 @@
-[RecipeStory](https://vhynot.github.io/RecipeStory).
+# [RecipeStory](https://recipestory.netlify.app)
 
 ## Available Scripts
 

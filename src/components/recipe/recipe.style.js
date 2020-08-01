@@ -10,6 +10,7 @@ export const RecipeWrapper = styled.div`
 export const Text = styled.p`
     text-align: center;
     padding: 2rem;
+    padding-right: calc(2rem + 40px);
     font-size: 2rem;
     font-weight: 500;
 `;
@@ -34,7 +35,7 @@ export const ButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    right: 2rem;
+    right: 1.5rem;
     top: 50%;
     transform: translate(0, -50%);
     &:hover > svg {

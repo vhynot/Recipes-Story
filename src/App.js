@@ -9,20 +9,23 @@ import { RecipesContextProvider } from "./context/recipesContext";
 import { FormContext } from "./context/formContext";
 
 const App = () => {
-  const { addFormVisible } = useContext(FormContext);
-  return (
-    <Router>
-      <RecipesContextProvider>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle noScroll={addFormVisible} />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/:id" component={RecipeDetails} />
-          </Switch>
-        </ThemeProvider>
-      </RecipesContextProvider>
-    </Router>
-  );
+    const { addFormVisible, editFormVisible } = useContext(FormContext);
+    return (
+        <Router>
+            <RecipesContextProvider>
+                <ThemeProvider theme={theme}>
+                    <GlobalStyle
+                        noScrollAddForm={addFormVisible}
+                        noScrollEditForm={editFormVisible}
+                    />
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/:id" component={RecipeDetails} />
+                    </Switch>
+                </ThemeProvider>
+            </RecipesContextProvider>
+        </Router>
+    );
 };
 
 export default App;
