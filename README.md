@@ -2,7 +2,7 @@
 
 ## Overview
 
-Recipes Story allows user to store in local storage, edit and delete particular recipes.
+Recipes Story allows user to store particular recipes in local storage with additional options of editing and deleting them.
 
 ### Technology/tools
 
