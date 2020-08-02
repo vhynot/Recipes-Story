@@ -16,7 +16,7 @@ const DeleteForm = ({ title, id }) => {
     return (
         <DeleteFormWrapper visible={deleteFormVisible}>
             <Title>
-                Are you sure you want delete <Bold>{title}</Bold> recipe?
+                Want to delete <Bold>{title}</Bold> recipe?
             </Title>
             <ButtonsWrapper>
                 <Reject onClick={() => setDeleteFormVisible(false)}>

@@ -21,7 +21,6 @@ const Home = () => {
     const recipesList = recipes.map((recipe) => {
         return <Recipe recipe={recipe} key={recipe.id} />;
     });
-    // https://vhynot.github.io/RecipeStory
     return (
         <>
             <Header />
