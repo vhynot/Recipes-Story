@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import {
-    Overlay,
     FormWrapper,
+    TitleWrapper,
     Title,
     InputTitle,
     InputIngredients,
@@ -10,8 +10,13 @@ import {
 import { FormContext } from "../../context/formContext";
 import { RecipesContext } from "../../context/recipesContext";
 
-const AddForm = ({ currentRecipe }) => {
-    const { editFormVisible, handleEditFormVisible } = useContext(FormContext);
+const EditForm = ({ currentRecipe }) => {
+    const {
+        editFormVisible,
+        handleEditFormVisible,
+        editFormSubmitted,
+        setEditFormSubmitted,
+    } = useContext(FormContext);
     const { dispatch } = useContext(RecipesContext);
     const [editTitle, setEditTitle] = useState("");
     const [editIngredients, setEditIngredients] = useState("");
@@ -27,6 +32,7 @@ const AddForm = ({ currentRecipe }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setEditFormSubmitted(true);
         if ((editTitle.trim() !== "") & (editIngredients.trim() !== "")) {
             dispatch({
                 type: "EDIT_RECIPE",
@@ -37,6 +43,7 @@ const AddForm = ({ currentRecipe }) => {
                 },
             });
             handleEditFormVisible();
+            setEditFormSubmitted(false);
         }
     };
 
@@ -51,25 +58,47 @@ const AddForm = ({ currentRecipe }) => {
     };
 
     return (
-        <Overlay onSubmit={handleSubmit} visible={editFormVisible}>
-            <FormWrapper visible={editFormVisible}>
+        <FormWrapper onSubmit={handleSubmit} visible={editFormVisible}>
+            <TitleWrapper>
                 <Title>Update your recipe</Title>
-                <InputTitle
-                    ref={inputRef}
-                    type="text"
-                    value={editTitle}
-                    onChange={handleTitleChange}
-                    name="title"
-                />
-                <InputIngredients
-                    value={editIngredients}
-                    onChange={handleIngredientsChange}
-                    name="ingredients"
-                ></InputIngredients>
-                <InputButton>Update</InputButton>
-            </FormWrapper>
-        </Overlay>
+            </TitleWrapper>
+            <InputTitle
+                ref={inputRef}
+                type="text"
+                value={editTitle}
+                onChange={handleTitleChange}
+                name="title"
+                placeholder="Recipe title"
+                isEmpty={
+                    editFormSubmitted && editTitle.trim() === "" ? true : false
+                }
+            />
+            <InputIngredients
+                value={editIngredients}
+                onChange={handleIngredientsChange}
+                name="ingredients"
+                placeholder="Enter ingredients separated by comma"
+                isEmpty={
+                    editFormSubmitted && editIngredients.trim() === ""
+                        ? true
+                        : false
+                }
+            ></InputIngredients>
+            <InputButton
+                isEmpty={
+                    editFormSubmitted &&
+                    (editIngredients.trim() === "" || editTitle.trim() === "")
+                        ? true
+                        : false
+                }
+            >
+                {editFormSubmitted &&
+                (editIngredients.trim() === "" || editTitle.trim() === "")
+                    ? "Fill out all empty fields!"
+                    : "Update recipe"}
+            </InputButton>
+        </FormWrapper>
     );
 };
 
-export default AddForm;
+export default EditForm;

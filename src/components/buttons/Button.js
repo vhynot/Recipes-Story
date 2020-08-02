@@ -1,12 +1,19 @@
 import React from "react";
 import { Add } from "./button.style";
 
-export const Button = ({ className, activeButton, activeAdd, activeClose }) => {
+export const Button = ({
+    className,
+    activeButton,
+    activeAdd,
+    activeClose,
+    activeDelete,
+}) => {
     return (
         <Add
             className={className}
             activeAdd={activeAdd}
             activeClose={activeClose}
+            activeDelete={activeDelete}
             onClick={() => activeButton()}
         >
             <svg

@@ -2,18 +2,23 @@ import styled from "styled-components";
 
 export const RecipeWrapper = styled.div`
     width: 80%;
-    margin: 2rem auto;
-    margin-bottom: calc(2rem + 62px);
+    max-width: 57rem;
+    margin: 5rem auto;
+    margin-bottom: calc(2rem + 62.7px);
     background-image: linear-gradient(150deg, #764b65, #4b1338);
     padding: 3rem;
     border-radius: 1.5rem;
+    @media (min-width: 768px) {
+        margin: 5rem auto;
+        margin-top: calc(5rem + 62.7px);
+    }
 `;
 
 export const RecipeTitle = styled.p`
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
 `;
@@ -45,10 +50,10 @@ export const Ingredient = styled.li`
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 4rem;
-        height: 4rem;
-        left: 1rem;
-        top: 1rem;
+        width: 3rem;
+        height: 3rem;
+        left: 1.5rem;
+        top: 1.5rem;
         border-radius: 50%;
     }
 `;

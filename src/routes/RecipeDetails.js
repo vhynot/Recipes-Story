@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
+import styled from "styled-components";
+import { useParams } from "react-router";
 import { RecipesContext } from "../context/recipesContext";
 import { FormContext } from "../context/formContext";
-import { useParams } from "react-router";
 import EditForm from "../components/forms/EditForm";
 import Navbar from "../components/navbar/Navbar";
 import { Button } from "../components/buttons/Button";
@@ -10,9 +11,9 @@ import {
     RecipeTitle,
     List,
     Ingredient,
-} from "../components/recipe/recipe-wrapper.style";
+} from "../components/recipes/recipe-wrapper.style";
 import { EditButton } from "../components/buttons/edit-button.style";
-import styled from "styled-components";
+import { Overlay } from "../components/global/overlay.style";
 
 const CloseButton = styled(Button)`
     transform: rotate(45deg);
@@ -53,10 +54,11 @@ const RecipeDetails = () => {
                 <RecipeTitle>{currentRecipe.title}</RecipeTitle>
                 <List>{spread}</List>
                 <EditButton onClick={() => handleEditFormVisible()}>
-                    Edit
+                    Edit recipe
                 </EditButton>
             </RecipeWrapper>
             <EditForm currentRecipe={currentRecipe} />
+            <Overlay visible={editFormVisible} />
             <Navbar>
                 <CloseButton
                     activeClose={editFormVisible}
