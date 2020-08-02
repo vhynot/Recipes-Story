@@ -1,4 +1,4 @@
-# [Recipes-Story](https://vhynot.github.io/Recipes-Story)
+# [Recipes-Story](https://recipes-story.netlify.app/)
 
 ## Overview
 
