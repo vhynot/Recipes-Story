@@ -1,4 +1,4 @@
-# [Recipes-Story](https://vhynot.github.io/recipes-story)
+# [Recipes-Story](https://vhynot.github.io/Recipes-Story)
 
 ## Overview
 
