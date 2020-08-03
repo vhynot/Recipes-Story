@@ -6,7 +6,7 @@ Recipes Story allows user to store particular recipes in local storage with addi
 
 ### Technology/tools
 
--   ReactJS
+-   ReactJS (CRA)
 -   styled-components
 -   Context API
 -   Hooks
@@ -16,7 +16,7 @@ Recipes Story allows user to store particular recipes in local storage with addi
 -   ESLint
 -   uuid
 
-### Deployment
+### Development
 
 ```bash
 npm i
